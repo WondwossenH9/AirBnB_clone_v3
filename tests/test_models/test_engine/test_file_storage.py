@@ -30,39 +30,39 @@ class TestFileStorageDocs(unittest.TestCase):
         print('.................................\n\n')
 
     def test_doc_file(self):
-        """documentation for the file"""
+        """... documentation for the file"""
         expected = ("\nHandles I/O, writing and reading, of JSON for storage "
                     "of all class instances\n")
         actual = models.file_storage.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_class(self):
-        """documentation for the class"""
+        """... documentation for the class"""
         expected = 'handles long term storage of all class instances'
         actual = FileStorage.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_all(self):
-        """documentation for all function"""
+        """... documentation for all function"""
         expected = 'returns private attribute: __objects'
         actual = FileStorage.all.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_new(self):
-        """documentation for new function"""
+        """... documentation for new function"""
         expected = ("sets / updates in __objects the obj with key <obj class "
                     "name>.id")
         actual = FileStorage.new.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_save(self):
-        """documentation for save function"""
+        """... documentation for save function"""
         expected = 'serializes __objects to the JSON file (path: __file_path)'
         actual = FileStorage.save.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_reload(self):
-        """documentation for reload function"""
+        """... documentation for reload function"""
         expected = ("if file exists, deserializes JSON file to __objects, "
                     "else nothing")
         actual = FileStorage.reload.__doc__
@@ -86,17 +86,17 @@ class TestBmFsInstances(unittest.TestCase):
         self.bm_obj = BaseModel()
 
     def test_instantiation(self):
-        """checks proper FileStorage instantiation"""
+        """... checks proper FileStorage instantiation"""
         self.assertIsInstance(self.storage, FileStorage)
 
     def test_storage_file_exists(self):
-        """checks proper FileStorage instantiation"""
+        """... checks proper FileStorage instantiation"""
         os.remove(F)
         self.bm_obj.save()
         self.assertTrue(os.path.isfile(F))
 
     def test_obj_saved_to_file(self):
-        """checks proper FileStorage instantiation"""
+        """... checks proper FileStorage instantiation"""
         os.remove(F)
         self.bm_obj.save()
         bm_id = self.bm_obj.id
@@ -109,7 +109,7 @@ class TestBmFsInstances(unittest.TestCase):
         self.assertTrue(1 == actual)
 
     def test_to_json(self):
-        """to_json should return serializable dict object"""
+        """... to_json should return serializable dict object"""
         my_model_json = self.bm_obj.to_json()
         actual = 1
         try:
@@ -119,7 +119,7 @@ class TestBmFsInstances(unittest.TestCase):
         self.assertTrue(1 == actual)
 
     def test_reload(self):
-        """checks proper usage of reload function"""
+        """... checks proper usage of reload function"""
         os.remove(F)
         self.bm_obj.save()
         bm_id = self.bm_obj.id
@@ -133,7 +133,7 @@ class TestBmFsInstances(unittest.TestCase):
         self.assertTrue(1 == actual)
 
     def test_save_reload_class(self):
-        """checks proper usage of class attribute in file storage"""
+        """... checks proper usage of class attribute in file storage"""
         os.remove(F)
         self.bm_obj.save()
         bm_id = self.bm_obj.id
@@ -165,14 +165,14 @@ class TestUserFsInstances(unittest.TestCase):
 
     @unittest.skipIf(storage_type == 'db', 'skip if environ is db')
     def test_storage_file_exists(self):
-        """checks proper FileStorage instantiation"""
+        """... checks proper FileStorage instantiation"""
         os.remove(F)
         self.user.save()
         self.assertTrue(os.path.isfile(F))
 
     @unittest.skipIf(storage_type == 'db', 'skip if environ is db')
     def test_obj_saved_to_file(self):
-        """checks proper FileStorage instantiation"""
+        """... checks proper FileStorage instantiation"""
         os.remove(F)
         self.user.save()
         u_id = self.user.id
@@ -186,7 +186,7 @@ class TestUserFsInstances(unittest.TestCase):
 
     @unittest.skipIf(storage_type == 'db', 'skip if environ is db')
     def test_reload(self):
-        """checks proper usage of reload function"""
+        """... checks proper usage of reload function"""
         os.remove(F)
         self.bm_obj.save()
         u_id = self.bm_obj.id

@@ -25,43 +25,43 @@ class TestDBStorageDocs(unittest.TestCase):
         print('.................................\n\n')
 
     def test_doc_file(self):
-        """documentation for the file"""
+        """... documentation for the file"""
         expected = ' Database engine '
         actual = db_storage.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_class(self):
-        """documentation for the class"""
+        """... documentation for the class"""
         expected = 'handles long term storage of all class instances'
         actual = DBStorage.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_all(self):
-        """documentation for all function"""
+        """... documentation for all function"""
         expected = ' returns a dictionary of all objects '
         actual = DBStorage.all.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_new(self):
-        """documentation for new function"""
+        """... documentation for new function"""
         expected = ' adds objects to current database session '
         actual = DBStorage.new.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_save(self):
-        """documentation for save function"""
+        """... documentation for save function"""
         expected = ' commits all changes of current database session '
         actual = DBStorage.save.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_reload(self):
-        """documentation for reload function"""
+        """... documentation for reload function"""
         expected = ' creates all tables in database & session from engine '
         actual = DBStorage.reload.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_delete(self):
-        """documentation for delete function"""
+        """... documentation for delete function"""
         expected = ' deletes obj from current database session if not None '
         actual = DBStorage.delete.__doc__
         self.assertEqual(expected, actual)
@@ -85,7 +85,7 @@ class TestStateDBInstances(unittest.TestCase):
         self.state.save()
 
     def test_state_all(self):
-        """checks if all() function returns newly created instance"""
+        """... checks if all() function returns newly created instance"""
         all_objs = storage.all()
         all_state_objs = storage.all('State')
 
@@ -182,7 +182,7 @@ class TestCityDBInstances(unittest.TestCase):
         self.city.save()
 
     def test_city_all(self):
-        """checks if all() function returns newly created instance"""
+        """... checks if all() function returns newly created instance"""
         all_objs = storage.all()
         all_city_objs = storage.all('City')
 
@@ -276,7 +276,7 @@ class TestPlaceDBInstances(unittest.TestCase):
         self.place.save()
 
     def test_place_all(self):
-        """checks if all() function returns newly created instance"""
+        """... checks if all() function returns newly created instance"""
         all_objs = storage.all()
         all_place_objs = storage.all('Place')
 
